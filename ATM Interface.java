@@ -5,7 +5,7 @@ class ATM {
     String Password;
     String Name;
     int Balance;
-    String TransHistory="";
+    String TransactionHistory="";
     int IsLogin=0;
     int IsFinished=0;
     String User;
@@ -53,9 +53,9 @@ class ATM {
         }
     }  
     
-    void Withdrawal()
+    void Withdrawl()
     {
-        System.out.println("Enter Withdrawal Amount:");
+        System.out.println("Enter Withdrawl Amount:");
         int Amount=sc.nextInt();
         if(this.Balance>=Amount)
         {
@@ -63,14 +63,14 @@ class ATM {
             {
                 System.out.println("Transaction Limit is 10000");
                 System.out.println("Please Enter lower Amount");
-                Withdrawal();
+                Withdrawl();
             }
             else
             {
                 System.out.println("Please Collect Cash of Rs."+Amount);
                 this.Balance=this.Balance-Amount;
                 String str=Amount+" Rs Withdrawed\n";
-                this.TransHistory=this.TransHistory+str;
+                this.TransactionHistory=this.TransactionHistory+str;
             }
         }
         else
@@ -92,7 +92,7 @@ class ATM {
             System.out.println("Rs. "+Amount+" Deposited Succesfully");
             this.Balance=this.Balance+Amount;
             String str=Amount +" Rs Deposited\n";
-            this.TransHistory=this.TransHistory+str;
+            this.TransactionHistory=this.TransactionHistory+str;
         }
     }
     void Transfer()
@@ -106,7 +106,7 @@ class ATM {
             System.out.println("Rs. "+Amount+" Succesfully Tansferred\n");
             this.Balance=this.Balance-Amount;
             String str=Amount +" Rs Transferred to "+RName+"\n";
-            this.TransHistory=this.TransHistory+str;
+            this.TransactionHistory=this.TransactionHistory+str;
         }
         else
         {
@@ -117,10 +117,10 @@ class ATM {
     {
         System.out.println("Balance:"+this.Balance);
     }
-    void TransHistory()
+    void TransactionHistory()
     {
         System.out.println("Transaction History:");
-        System.out.println(this.TransHistory);
+        System.out.println(this.TransactionHistory);
     }
     void Quit()
     {
@@ -169,7 +169,7 @@ public class Main
                             {
                                 case 1:
                                 {
-                                    a.Withdrawal();
+                                    a.Withdrawl();
                                     break;
                                 }
                                 case 2:
@@ -184,7 +184,7 @@ public class Main
                                 }
                                 case 4:
                                 {
-                                    a.TransHistory();
+                                    a.TransactionHistory();
                                     break;
                                 }
                                 case 5:
